@@ -1,0 +1,179 @@
+
+
+
+<template name="scorecard">
+  {{#if isInRole 'admin' 'default-group'}}
+<!-- 
+
+<table id="click1" class="striped">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Date</th>
+              <th data-field="price">Score</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Hamza</td>
+            <td>27/06/2016</td>
+            <td >19/40</td>
+          </tr>
+          <tr>
+            <td>Anas</td>
+            <td>27/06/2016</td>
+            <td>20/40</td>
+          </tr>
+          <tr>
+            <td>Salman</td>
+            <td>27/06/2016</td>
+            <td>20/40</td>
+          </tr>
+        </tbody>
+      </table> -->
+<!--  
+{{#each myCollection2}}
+{{myCollection2}}
+{{/each}} -->
+<!-- 
+
+{{#each myCollection2}}
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{userEmail}}</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+
+    </li>
+  </ul>
+
+  {{/each}} -->
+<!-- 
+ <div>
+      <ul>
+          {{#each documents}}
+              <li>Document #{{_id}}</li>
+          {{/each}}
+        </ul>
+        {{> defaultBootstrapPaginator pagination=templatePagination limit=5 containerClass="text-center" onClick=clickEvent}}
+  </div> -->
+
+ <div  style="max-width: 60%;
+    margin: auto;">
+
+<!--    {{#each documents}}
+    <a href="#!" class="collapsible-header "> {{userEmail}} {{correctScore}} /  {{userScore}} </a>
+     <div class="collapsible-body"><p>asdsadsa</p></div>
+{{/each}}
+ -->
+
+  <input placeholder="Email" id="first_name" type="text" class="validate">
+  <input placeholder="Cnic" id="cnic" type="text" class="validate">
+
+  <ul class="collapsible" data-collapsible="accordion">
+     {{#each documents}}
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{userEmail}} - {{userCnic}}</div>
+      <div class="collapsible-body">
+      <!-- <p>{{correctScore}} /  {{userScore}}</p> -->
+          <table class="striped">
+        <thead>
+          <tr>
+              <th data-field="id">Particulars</th>
+              <th data-field="name">Attempted Answers</th>
+              <th data-field="price">Correct Answers</th>
+             <!--  <th data-field="id">Wrong Answers</th> -->
+              <th data-field="price">Out of</th>
+                <th data-field="name">Score</th>
+              <th data-field="price">Result</th>
+          </tr>
+        </thead>
+
+        <tbody>
+           {{#each sections}}
+          <tr>
+            <td>{{section}}</td>
+             <td>{{userScore}}</td>
+            <td>{{correctScore}}</td>
+   <!--          <td>%</td> -->
+            <td>{{QuestionsCount}}</td>
+             <td>{{ResultCacl}}%</td>
+            <td id=fr value={{FinalResult}}>{{FinalResult}}</td>
+            
+           
+          </tr>
+            {{/each}}
+       
+          
+
+    
+
+
+
+        </tbody>
+      </table>
+
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+
+{{> defaultBootstrapPaginator pagination=templatePagination limit=5 containerClass="text-center" onClick=clickEvent}}
+<!-- <ul class="collapsible" data-collapsible="accordion">
+    {{#each documents}}
+        <li>
+            <div class="collapsible-header">{{userEmail}}<button id="delete0" class="btn waves-effect waves-light" style=" padding: 0px 1rem;font-size: smaller;   float: right;">Delete</button></div>
+            
+            <div class="collapsible-body"><p>asdsadsa {{userEmail}}</p><button id="delete" class="btn waves-effect waves-light" >Delete</button></div>
+           
+        </li>
+    {{/each}}
+</ul>
+ -->
+
+<!--    
+{{#each documents}}
+    <a href="#!" class="collection-item"><span class="new badge">{{correctScore}} /  {{userScore}}</span>{{userEmail}} </a>
+{{/each}}
+
+ 
+
+ -->
+  </div>
+
+  <br>
+  <br>
+<!-- <div style="max-width: 70%;
+    margin: auto;">
+{{> reactiveTable  class="bordered striped" settings=settings2 }}
+    </div> -->
+            
+
+<!-- {{#each myCollection2}}
+<div >
+<button data-target="{{userEmail}}" class=" collection-item"> {{userEmail}}    <span class="badge"> {{correctScore}} /  {{userScore}}</span></button>2
+</div>
+{{/each}}
+ --> 
+<div style="max-width: 70%;
+    margin: auto;">
+{{> reactiveTable  class="bordered striped" settings=settings }}
+    </div>
+
+
+
+    {{else}}
+    <div class="row">
+
+<div class="col s6 offset-s5">
+
+    <p>Please Log In As Admin To Continue</p>
+
+    </div>
+    </div>
+
+        {{/if}}
+
+
+
+     </template>
